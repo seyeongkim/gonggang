@@ -194,3 +194,15 @@
     </button>
   </li>
 </ul>
+
+
+<script>
+  $( function() {
+    $('td').click( function() {
+      $(this).parents('table').find('td').each( function( index, element ) {
+          $(element).removeClass('on');
+      } );
+      $(this).addClass('on');
+    } );
+  } );
+</script>
