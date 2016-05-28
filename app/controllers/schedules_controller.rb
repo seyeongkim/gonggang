@@ -20,6 +20,17 @@ class SchedulesController < ApplicationController
 
      
   end
+  
+  def test
+    p = Schedule.new(mon[0]=params[:mon], tue[0]=params[:tue], wed[0]=params[:wed], thu[0]=params[:thu], fri[0]=params[:fri], sat[0]=params[:sat], sun[0]=params[:sun], user:current_user)
+    p.save
+    
+    redirect_to "/schedules/test2"
+  end
+  
+  def test2
+    @schedule = Schedule.all
+  end
 
   # GET /schedules/1/edit
   def edit
@@ -28,7 +39,15 @@ class SchedulesController < ApplicationController
   # POST /schedules
   # POST /schedules.json
   def create
-    @schedule = Schedule.new(schedule_params, user:current_user)
+    @schedule = Schedule.new
+    @schedule.mon[0] = params[:mon]
+    @schedule.tue[0] = params[:tue]
+    @schedule.wed[0] = params[:wed]
+    @schedule.thu[0] = params[:thu]
+    @schedule.fri[0] = params[:fri]
+    @schedule.sat[0] = params[:sat]
+    @schedule.sun[0] = params[:sun]
+    
     @schedule.user_id = current_user.id
 
     respond_to do |format|
@@ -74,6 +93,6 @@ class SchedulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def schedule_params
-      params.require(:schedule).permit(:user_id, :content)
+      params.require(:schedule).permit(:user_id, :mon, :tue, :wed, :thu, :fri, :sat, :sun)
     end
 end

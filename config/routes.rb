@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :groups
+  resources :groups
+  resources :groups
   root 'schedules#new'
   devise_for :users
   resources :schedules

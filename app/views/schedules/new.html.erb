@@ -1,5 +1,17 @@
+<%= form_for(@schedule) do |f| %>
 <h1>New Schedule</h1>
 
-<%= render 'form' %>
 
-<%= link_to 'view all', schedules_path %>
+    <p>월: <input name="mon" value="true"></p>
+    <p>화: <input name="tue" value="true"></p>
+    <p>수: <input name="wed" value="true"></p>
+    <p>목: <input name="thu" value="true"></p>
+    <p>금: <input name="fri" value="true"></p>
+    <p>토: <input name="sat" value="true"></p>
+    <p>일: <input name="sun" value="true"></p>
+     
+     <div class="actions">
+         <%= f.submit %>
+     </div>
+
+<% end %>

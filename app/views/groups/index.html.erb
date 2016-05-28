@@ -1,43 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Schedules</h1>
+<h1>Listing Groups</h1>
 
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>Mon</th>
-      <th>Tue</th>
-      <th>Wed</th>
-      <th>Thu</th>
-      <th>Fri</th>
-      <th>Sat</th>
-      <th>Sun</th>
+      <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @schedules.each do |schedule| %>
+    <% @groups.each do |group| %>
       <tr>
-        <td><%= schedule.user_id %></td>
-        <td><%= schedule.mon %></td>
-        <td><%= schedule.tue %></td>
-        <td><%= schedule.wed %></td>
-        <td><%= schedule.thu %></td>
-        <td><%= schedule.fri %></td>
-        <td><%= schedule.sat %></td>
-        <td><%= schedule.sun %></td>
-        <td><%= link_to 'Show', schedule %></td>
-        <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
-        <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= group.name %></td>
+        <td><%= link_to 'Show', group %></td>
+        <td><%= link_to 'Edit', edit_group_path(group) %></td>
+        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<h1>나으이 스케줄</h1>
-
+<h1>맞는 시간은 언제인가?</h1>
 <table>
   <thead>
     <tr>
@@ -196,14 +180,5 @@
 </table>
 
 <br>
-<h2>내가 속한 그룹</h2>
-<ul>
-  <li>
-    <!--% @group.each do |group| %> 나중ㅇ에 db만들ㅇ어지면면 -->
-    <!--<span>%= group.name %></span>-->
-    <span>그룹이름</span>
-    <button type="button" class="btn btn-default" aria-label="remove" style="font-size: 10px; padding: 2px 4px;" >
-    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-    </button>
-  </li>
-</ul>
+
+<%= link_to 'New Group', new_group_path %>
